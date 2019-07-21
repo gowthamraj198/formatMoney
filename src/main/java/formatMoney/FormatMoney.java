@@ -1,3 +1,5 @@
+package formatMoney;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.regex.Matcher;
@@ -21,7 +23,7 @@ public class FormatMoney {
     }
 
        /*
-        Function to convert string to
+        Function to convert Number in String format to
         a. BigDecimal if the input has decimal part
         b. BigInteger if the input is a whole number
      */
@@ -121,17 +123,19 @@ public class FormatMoney {
         Function that gives output
      */
 
-    public String moneyToString(String money)
+    public String moneyToStringFinal(String money) throws IllegalArgumentException
     {
+//        String num = formatMoney(money);
+//        System.out.println(num);
         return applyPlaceValue(formatMoney(money));
     }
 
     public static void main(String[] args)
     {
         FormatMoney formatMoney=new FormatMoney();
-        String money="090.235345";
+        String money="12657";
 //        System.out.println(formatMoney.formatMoney(money));
-        System.out.println(formatMoney.moneyToString(money));
+        System.out.println(formatMoney.moneyToStringFinal(money));
     }
 
 }
