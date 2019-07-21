@@ -95,7 +95,7 @@ public class FormatMoney {
             moneyWholePartReverse = reverseString(splitMoney[0]);
             moneyWithPlaceValue = moneyWholePartReverse.replaceAll("...", "$0 ");
             moneyWithPlaceValueRevere = reverseString(moneyWithPlaceValue);
-            return moneyWithPlaceValueRevere +"."+splitMoney[1];
+            return moneyWithPlaceValueRevere.trim() +"."+splitMoney[1];
         }
         else
         {

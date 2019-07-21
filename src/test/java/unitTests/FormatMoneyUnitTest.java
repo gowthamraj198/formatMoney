@@ -50,6 +50,16 @@ public class FormatMoneyUnitTest extends UnitTest{
     }
 
     @Test
+    public void isMoneyValidWithNoDecimalValuesAfterDot() {
+        getNumber("154.");
+    }
+
+    @Test
+    public void isMoneyValidWithTwoDecimals() {
+        getNumber("12.34.43");
+    }
+
+    @Test
     public void isMoneyValidDecimalNumberWithChars() {
         getNumber("154.23P");
     }
@@ -70,8 +80,13 @@ public class FormatMoneyUnitTest extends UnitTest{
     }
 
     @Test
-    public void convertBigDecimalToStringRoundToNextNumber() {
+    public void convertBigDecimalToStringRoundToNextDecimalNumber() {
         assertEquals(formatMoney.moneyToString(new BigDecimal("12987243.12587243")), "12987243.13");
+    }
+
+    @Test
+    public void convertBigDecimalToStringRoundToNextNumber() {
+        assertEquals(formatMoney.moneyToString(new BigDecimal("12987243.996")), "12987244.00");
     }
 
     @Test

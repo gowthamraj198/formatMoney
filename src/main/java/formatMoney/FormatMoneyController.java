@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static formatMoney.Messages.mandatoryMessage;
+
 @RestController
 @RequestMapping("/getmoney")
 public class FormatMoneyController {
@@ -23,7 +25,7 @@ public class FormatMoneyController {
 
             if(formatMoneyModel.getMoney()==null || formatMoneyModel.getMoney()=="")
             {
-                throw new IllegalArgumentException("Input cannot be empty!");
+                throw new IllegalArgumentException(mandatoryMessage);
             }
             else
             {
