@@ -141,6 +141,12 @@
                         <groupId>com.lazerycode.jmeter</groupId>
                         <artifactId>jmeter-maven-plugin</artifactId>
                         <version>2.9.0</version>
+                        <configuration>
+                            <propertiesUser>
+                                <ThreadCount>${ThreadCount}</ThreadCount>
+                                <response_timeout>${TimeOut}</response_timeout>
+                            </propertiesUser>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>jmeter-tests</id>
@@ -156,7 +162,7 @@
                                     </testFilesIncluded>
                                 </configuration>
                             </execution>
-                        </executions>
+                            </executions>
                     </plugin>
                 </plugins>
             </build>
