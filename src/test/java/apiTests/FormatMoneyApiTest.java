@@ -9,19 +9,13 @@ public class FormatMoneyApiTest extends DataProviders {
 
     @Test(dataProvider = "validMoney")
     public void formatMoney(String money, String expectedString) {
-        response = postTest(jsonObject(money),"application/json");
+        response = postTest(money);
         assertResponse(response,200,expectedString);
-    }
-
-    @Test(dataProvider = "validMoney")
-    public void formatMoneyInvalidContentType(String money, String expectedString) {
-        response = postTest(jsonObject(money),"text/plain");
-        assertResponse(response,415,expectedString);
     }
 
     @Test(dataProvider = "invalidMoney")
     public void formatMoneyInvalidMoney(String money, String expectedString) {
-        response = postTest(jsonObject(money),"application/json");
+        response = postTest(money);
         assertResponse(response,400,expectedString);
     }
 
