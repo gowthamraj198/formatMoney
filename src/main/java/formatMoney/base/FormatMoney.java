@@ -1,4 +1,4 @@
-package formatMoney;
+package formatMoney.base;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -19,7 +19,7 @@ public class FormatMoney {
         if(matcher.matches())
             return true;
         else
-            throw new IllegalArgumentException(Messages.invalidNewPasswordMessage);
+            throw new IllegalArgumentException(Messages.invalidInputMessage);
     }
 
        /*
@@ -125,8 +125,6 @@ public class FormatMoney {
 
     public String moneyToStringFinal(String money) throws IllegalArgumentException
     {
-//        String num = formatMoney(money);
-//        System.out.println(num);
         return applyPlaceValue(formatMoney(money));
     }
 

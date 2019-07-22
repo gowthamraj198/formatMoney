@@ -1,7 +1,7 @@
 package unitTests;
 
 
-import formatMoney.FormatMoney;
+import formatMoney.base.FormatMoney;
 
 import static org.junit.Assert.assertEquals;
 

@@ -1,5 +1,6 @@
-package formatMoney;
+package formatMoney.controller;
 
+import formatMoney.base.FormatMoney;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static formatMoney.Messages.mandatoryMessage;
+import static formatMoney.base.Messages.mandatoryMessage;
 
 @RestController
 @RequestMapping("/getmoney")

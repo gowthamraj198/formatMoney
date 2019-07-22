@@ -1,4 +1,4 @@
-package formatMoney;
+package formatMoney.controller;
 
 import org.springframework.boot.autoconfigure.web.servlet.error.AbstractErrorController;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;

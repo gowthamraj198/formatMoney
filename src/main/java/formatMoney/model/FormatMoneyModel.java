@@ -1,4 +1,4 @@
-package formatMoney;
+package formatMoney.model;
 
 public class FormatMoneyModel {
     private String money;
