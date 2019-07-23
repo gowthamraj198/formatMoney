@@ -1,0 +1,21 @@
+{
+  "name": "Visual-Regression-Testing",
+  "version": "0.3.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "casperjs test index.js"
+  },
+  "author": "Gowtham",
+  "keywords": [
+    "format-money"
+  ],
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "casperjs": "*",
+    "phantomcss": "*",
+    "phantomjs": "*",
+    "slimerjs": "*",
+    "grunt-phantomcss": "*"
+  }
+}
