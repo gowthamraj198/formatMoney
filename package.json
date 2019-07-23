@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "casperjs test index.js"
+    "test": "casperjs test src/test/vrt/index.js"
   },
   "author": "Gowtham",
   "keywords": [
