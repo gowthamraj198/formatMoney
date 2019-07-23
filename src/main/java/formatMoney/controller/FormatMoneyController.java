@@ -17,14 +17,6 @@ public class FormatMoneyController{
 
     FormatMoney formatMoney = new FormatMoney();
 
-    @GetMapping
-            (
-                    produces = {MediaType.TEXT_PLAIN_VALUE}
-            )
-    public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
-        model.addAttribute("name", name);
-        return "hello";
-    }
 
     @PostMapping(
             produces = {MediaType.TEXT_PLAIN_VALUE}
