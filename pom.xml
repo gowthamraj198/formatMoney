@@ -120,7 +120,8 @@
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>phantomjsdriver</artifactId>
-            <version>1.4.4</version>
+            <version>1.4.0</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

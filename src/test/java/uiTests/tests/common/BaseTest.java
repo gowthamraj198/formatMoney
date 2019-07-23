@@ -9,6 +9,8 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
@@ -37,6 +39,7 @@ public class BaseTest {
     public static final String LINUX_USER_AGENT_STRING = "Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/33.0";
     public static final String MAC_USER_AGENT_STRING = "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0 like Mac OS X) AppleWebKit/602.1.38 (KHTML, like Gecko) Version/10.0 Mobile/14A5297c Safari/602.1";
     public static String test_for = System.getProperty("test_for");
+    public static String browser = System.getProperty("browser");
     public static final DateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
     public static String testExecutionTimeStamp = dateFormat.format(new Date());
 
@@ -63,14 +66,20 @@ public class BaseTest {
             PropertyConfigurator.configure("log4j.properties");
             log.info("##################################################################");
 
-//            checkPreconditions();
             loadConfigurationProperties();
             pageURL=prop_data.getProperty("pageURL");
-//            instantiateDriverForWeb();
 
             log.info("Test case started");
-            if (test_for.equals("web")) instantiateDriverForWeb();
-            else if (test_for.equals("mobile")) instantiateDriveForMobile();
+            if(browser.equals("phantom"))
+            {
+                if (test_for.equals("web")) instantiatePhantomjsDriverforWeb();
+                else if (test_for.equals("mobile")) instantiatePhantomjsDriverforMobile();
+            }
+            else if(browser.equals("firefox"))
+            {
+                if (test_for.equals("web")) instantiateDriverForWeb();
+                else if (test_for.equals("mobile")) instantiateDriveForMobile();
+            }
 
             setPageLoadTimeout();
         } catch (Exception e) {
@@ -91,6 +100,22 @@ public class BaseTest {
                 PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,MAC_PHANTOM_DRIVER_PATH);
 
         driver = new PhantomJSDriver(caps);
+        driver.manage().window().maximize();
+        jse = driver;
+        jse.executeScript("window.focus()");
+    }
+
+    private void instantiatePhantomjsDriverforMobile()
+    {
+        Capabilities caps = new DesiredCapabilities();
+        ((DesiredCapabilities) caps).setJavascriptEnabled(true);
+        ((DesiredCapabilities) caps).setCapability(
+                PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,MAC_PHANTOM_DRIVER_PATH);
+
+        driver = new PhantomJSDriver(caps);
+        driver.manage().window().setSize(new Dimension(375, 667));
+        jse = (JavascriptExecutor) driver;
+        jse.executeScript("window.focus()");
     }
 
     private void instantiateDriveForMobile() throws IOException {
@@ -142,18 +167,6 @@ public class BaseTest {
         prop_data.load(properties_data);
     }
 
-    private void checkPreconditions() {
-        ensureTestForMobileOrWebOnly();
-    }
-
-    private void ensureTestForMobileOrWebOnly() {
-        if (!test_for.equals("web") && !test_for.equals("mobile")) {
-            log.error("Test_for parameter should be either mobile or web");
-            reports.startTestCase("Invalid Parameters", "Test_for parameter should be either mobile or web");
-            reports.endResult();
-            System.exit(1);
-        }
-    }
 
     @AfterMethod
     public void afterMethod() throws IOException {
