@@ -19,4 +19,10 @@ public class FormatMoneyApiTest extends DataProviders {
         assertResponse(response,400,expectedString);
     }
 
+    @Test(dataProvider = "emptyMoney")
+    public void formatMoneyEmptyMoney(String money, String expectedString) {
+        response = postTest(money);
+        assertResponse(response,400,expectedString);
+    }
+
 }

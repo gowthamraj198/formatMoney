@@ -29,6 +29,12 @@ public class DataProviders extends BaseClass{
                 {"-123.35", invalidNewPasswordMessage},
                 {"1234d.35", invalidNewPasswordMessage},
                 {"1234.35r", invalidNewPasswordMessage},
+        };
+    }
+
+    @DataProvider(name = "emptyMoney")
+    public static Object[][] emptyMoney() {
+        return new Object[][]{
                 {"", mandatoryMessage}
         };
     }
