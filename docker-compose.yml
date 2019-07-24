@@ -1,0 +1,12 @@
+version: "2"
+services:
+  formatmoney:
+    image: formatmoney:t1
+    container_name: app1
+    restart: always
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+        - "7238:7238"
+    command: mvn spring-boot:run
