@@ -8,5 +8,5 @@ services:
       context: ./
       dockerfile: ./Dockerfile
     ports:
-        - "7238:7238"
+        - "7338:7338"
     command: mvn spring-boot:run

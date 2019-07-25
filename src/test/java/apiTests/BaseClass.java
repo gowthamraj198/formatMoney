@@ -9,7 +9,7 @@ import org.json.simple.JSONObject;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class BaseClass {
-    public String URL="http://localhost:7238/getmoney";
+    public String URL="http://localhost:7338/getmoney";
     public static String invalidNewPasswordMessage = "Enter only valid whole or decimal absolute number" ;
     public static String invalidContentTypeMessage = "Unsupported Media Type" ;
     public static String mandatoryMessage = "Input cannot be empty!" ;

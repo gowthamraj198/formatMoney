@@ -7,7 +7,7 @@ casper.test.begin('Empty input', function(test) {
         rebase: casper.cli.get('rebase')
     });
 
-    casper.start('http://localhost:7238/home.html');
+    casper.start('http://localhost:7338/home.html');
 
     casper.viewport(800, 1024);
 
@@ -40,7 +40,7 @@ casper.test.begin('valid input', function(test) {
         rebase: casper.cli.get('rebase')
     });
 
-    casper.start('http://localhost:7238/home.html');
+    casper.start('http://localhost:7338/home.html');
     casper.viewport(1000, 1000);
 
     casper.then(function () {
@@ -70,7 +70,7 @@ casper.test.begin('invalid input', function(test) {
         rebase: casper.cli.get('rebase')
     });
 
-    casper.start('http://localhost:7238/home.html');
+    casper.start('http://localhost:7338/home.html');
     casper.viewport(1000, 1000);
 
     casper.then(function () {
