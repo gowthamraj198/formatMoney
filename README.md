@@ -59,4 +59,6 @@ To run visual regression tests
 
 **Note:**
 
+- accessibility, jmeter and visual regression tests are inside /src/test folder
+- api, ui and unit tests are inside src/test/java folder
 
